@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{2A78D461-67A4-4C7C-BAB3-88D7B26133A1}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>EmpireCommon</RootNamespace>
+    <AssemblyName>EmpireCommon</AssemblyName>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="com\kbs\common\thread\RunnableI.cs" />
+    <Compile Include="com\kbs\common\thread\StringPollerI.cs" />
+    <Compile Include="com\kbs\empire\ai\common\cevent\CEventConstants.cs" />
+    <Compile Include="com\kbs\empire\ai\common\cevent\CGameEvent.cs" />
+    <Compile Include="com\kbs\empire\ai\common\cevent\CProductionReportData.cs" />
+    <Compile Include="com\kbs\empire\ai\common\cevent\CStartTurn.cs" />
+    <Compile Include="com\kbs\empire\ai\common\cevent\CStateEvent.cs" />
+    <Compile Include="com\kbs\empire\ai\common\cevent\CUpdate.cs" />
+    <Compile Include="com\kbs\empire\ai\common\map\AIMap.cs" />
+    <Compile Include="com\kbs\empire\ai\common\map\CMapLocInfo.cs" />
+    <Compile Include="com\kbs\empire\ai\common\player\AIPlayer.cs" />
+    <Compile Include="com\kbs\empire\ai\common\player\AIPlayerData.cs" />
+    <Compile Include="com\kbs\empire\ai\common\player\AIPlayerFactory.cs" />
+    <Compile Include="com\kbs\empire\ai\common\proc\AICheatI.cs" />
+    <Compile Include="com\kbs\empire\ai\common\proc\AICommandInterfaceI.cs" />
+    <Compile Include="com\kbs\empire\ai\common\proc\AIEventInterfaceI.cs" />
+    <Compile Include="com\kbs\empire\ai\common\proc\AIQueryI.cs" />
+    <Compile Include="com\kbs\empire\ai\common\unit\AIUnitConstants.cs" />
+    <Compile Include="com\kbs\empire\common\game\data\EmpireCC.cs" />
+    <Compile Include="com\kbs\empire\common\game\hints\CDLLBoolHintInfo.cs" />
+    <Compile Include="com\kbs\empire\common\game\hints\CDLLContainerHintInfo.cs" />
+    <Compile Include="com\kbs\empire\common\game\hints\CDLLFileValueHintInfo.cs" />
+    <Compile Include="com\kbs\empire\common\game\hints\CDLLHintInfo.cs" />
+    <Compile Include="com\kbs\empire\common\game\hints\CDLLHints.cs" />
+    <Compile Include="com\kbs\empire\common\game\hints\CDLLInfo.cs" />
+    <Compile Include="com\kbs\empire\common\game\hints\CDLLLockableHintInfo.cs" />
+    <Compile Include="com\kbs\empire\common\game\hints\CDLLNameValueHintInfo.cs" />
+    <Compile Include="com\kbs\empire\common\game\hints\CDLLNumericRangeValueHintInfo.cs" />
+    <Compile Include="com\kbs\empire\common\game\hints\CDLLNumericValueHintInfo.cs" />
+    <Compile Include="com\kbs\empire\common\game\hints\CDLLRadioContainerHintInfo.cs" />
+    <Compile Include="com\kbs\empire\common\game\hints\CDLLStringValueHintInfo.cs" />
+    <Compile Include="com\kbs\empire\common\game\map\CLoc.cs" />
+    <Compile Include="com\kbs\empire\common\game\map\CMapUtil.cs" />
+    <Compile Include="com\kbs\empire\common\game\order\CMoveResult.cs" />
+    <Compile Include="com\kbs\empire\common\game\order\CNotification.cs" />
+    <Compile Include="com\kbs\empire\common\game\order\COrder.cs" />
+    <Compile Include="com\kbs\empire\common\game\order\COrderConstants.cs" />
+    <Compile Include="com\kbs\empire\common\game\player\CPlayer.cs" />
+    <Compile Include="com\kbs\empire\common\game\proc\UnitQueryI.cs" />
+    <Compile Include="com\kbs\empire\common\game\rules\CGameRules.cs" />
+    <Compile Include="com\kbs\empire\common\game\rules\CVictoryConditions.cs" />
+    <Compile Include="com\kbs\empire\common\game\supply\CSupplyRoute.cs" />
+    <Compile Include="com\kbs\empire\common\game\treaty\CProposal.cs" />
+    <Compile Include="com\kbs\empire\common\game\unit\ClientUnitProdData.cs" />
+    <Compile Include="com\kbs\empire\common\game\unit\CProducerUnit.cs" />
+    <Compile Include="com\kbs\empire\common\game\unit\CUnit.cs" />
+    <Compile Include="com\kbs\empire\common\game\unit\CUnitConstants.cs" />
+    <Compile Include="com\kbs\empire\common\util\log\CLog.cs" />
+    <Compile Include="com\kbs\empire\common\util\log\CSubLog.cs" />
+    <Compile Include="com\kbs\empire\common\util\loops\LoopCheck.cs" />
+    <Compile Include="com\kbs\empire\common\util\random\CMersenneTwister.cs" />
+    <Compile Include="com\kbs\empire\common\util\random\CMTRandom.cs" />
+    <Compile Include="com\kbs\empire\common\util\random\CProbTbl.cs" />
+    <Compile Include="com\kbs\empire\common\util\xml\CEncodedObjectInputBufferI.cs" />
+    <Compile Include="com\kbs\empire\common\util\xml\CEncodedObjectOutputBufferI.cs" />
+    <Compile Include="com\kbs\empire\common\util\xml\EncodeUtil.cs" />
+    <Compile Include="com\kbs\empire\version\Version.cs" />
+    <Compile Include="com\kbs\empire\worldbuild\common\proc\CGameMapParameters.cs" />
+    <Compile Include="com\kbs\empire\worldbuild\common\proc\CMapMaker.cs" />
+    <Compile Include="com\kbs\empire\worldbuild\common\proc\CWorldBuilderFactory.cs" />
+    <Compile Include="com\kbs\empire\worldbuild\common\proc\MapCallbackI.cs" />
+    <Compile Include="com\kbs\empire\worldbuild\common\proc\TempMapStruct.cs" />
+    <Compile Include="com\kbs\empire\worldbuild\common\proc\TempUnitStruct.cs" />
+    <Compile Include="com\kbs\empire\worldbuild\common\proc\WBQueryI.cs" />
+    <Compile Include="com\kbs\empire\worldbuild\common\proc\WorldBuilderI.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

@@ -1,0 +1,9 @@
+D:\Acronda\Development\Gameing\Trunk\EDCE\AI_WWII_standard\AI_WWII_standard\obj\Debug\AI_WWII_standard.csprojAssemblyReference.cache
+D:\Acronda\Development\Gameing\Trunk\EDCE\AI_WWII_standard\AI_WWII_standard\obj\Debug\AI_WWII_standard.csproj.CoreCompileInputs.cache
+D:\Acronda\Development\Gameing\Trunk\EDCE\AI_WWII_standard\AI_WWII_standard\bin\Debug\AI_WWII_Standard.dll
+D:\Acronda\Development\Gameing\Trunk\EDCE\AI_WWII_standard\AI_WWII_standard\bin\Debug\AI_WWII_Standard.pdb
+D:\Acronda\Development\Gameing\Trunk\EDCE\AI_WWII_standard\AI_WWII_standard\bin\Debug\EmpireCommon.dll
+D:\Acronda\Development\Gameing\Trunk\EDCE\AI_WWII_standard\AI_WWII_standard\bin\Debug\EmpireCommon.pdb
+D:\Acronda\Development\Gameing\Trunk\EDCE\AI_WWII_standard\AI_WWII_standard\obj\Debug\AI_WWII_standard.csproj.CopyComplete
+D:\Acronda\Development\Gameing\Trunk\EDCE\AI_WWII_standard\AI_WWII_standard\obj\Debug\AI_WWII_Standard.dll
+D:\Acronda\Development\Gameing\Trunk\EDCE\AI_WWII_standard\AI_WWII_standard\obj\Debug\AI_WWII_Standard.pdb
