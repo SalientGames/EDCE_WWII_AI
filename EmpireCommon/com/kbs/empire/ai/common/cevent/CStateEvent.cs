@@ -30,53 +30,92 @@ using com.kbs.empire.common.game.unit;
 
 namespace com.kbs.empire.ai.common.cevent
 {
-    //One time event at the start of a game
+    /// <summary>
+    /// One time event at the start of a game
+    /// </summary>
     public class CStateEvent : CGameEvent
     {
         public List<CPlayer> players_ = null;
 
         //just the basic map facts
-        //width
+
+        /// <summary>
+        /// width
+        /// </summary>
         public int w_;
-        //horz wrap
+        /// <summary>
+        /// horz wrap
+        /// </summary>
         public bool hw_;
-        //height
+        /// <summary>
+        /// height
+        /// </summary>
         public int h_;
-        //vert wrap
+        /// <summary>
+        /// vert wrap
+        /// </summary>
         public bool vw_;
 
-        //Set of rules
+        /// <summary>
+        /// Set of rules
+        /// </summary>
         public CGameRules gameRules_;
-        //Set of Victory Conditions
+        /// <summary>
+        /// Set of Victory Conditions
+        /// </summary>
         public CVictoryConditions vc_;
 
-        //flyover gid, x, y, 
+        /// <summary>
+        /// flyover gid, x, y, 
+        /// </summary>
         public uint flyoverGid_ = CUnitConstants.NOUNIT;
 
-        //Visible Map info
+        /// <summary>
+        /// Visible Map info
+        /// </summary>
         public List<CMapLocInfo> exploredLocs_ = null;
 
-        //Player's Cities
+        /// <summary>
+        /// Player's Cities
+        /// </summary>
         public List<CProducerUnit> cities_ = null;
-        //PLayers Non-City Producers (like Oilfields)
+        /// <summary>
+        /// PLayers Non-City Producers (like Oilfields)
+        /// </summary>
         public List<CProducerUnit> prods_ = null;
-        //City's Units (will include prods
+        /// <summary>
+        /// City's Units (will include prods
+        /// </summary>
         public List<CUnit> units_ = null;
-        //Enemy Cities and Units
+        /// <summary>
+        /// Enemy Cities and Units
+        /// </summary>
         public List<CUnit> spots_ = null;
-        //Player's Supply routes
+        /// <summary>
+        /// Player's Supply routes
+        /// </summary>
         public List<CSupplyRoute> routes_ = null;
-        
-        //Current Game Turn
+
+        /// <summary>
+        /// Current Game Turn
+        /// </summary>
         public int curturn_;
 
-        //Units before drain issues
+        /// <summary>
+        /// Units before drain issues
+        /// </summary>
         public int unitsBeforeDrain_ = 0;
-        //Drain Weight. Values over 100 cause drain
+        /// <summary>
+        /// Drain Weight. Values over 100 cause drain
+        /// </summary>
         public int rdWeight_ = 0;
-        //These Are Gift Proposals for this turn (if current turn)
-        public List<CProposal> proposals_ = null; 
-        //Production Reports for the past turn (if any or null)
+        /// <summary>
+        /// These Are Gift Proposals for this turn (if current turn)
+        /// </summary>
+        public List<CProposal> proposals_ = null;
+        /// <summary>
+        /// Production Reports for the past turn (if any or null)
+        /// </summary>
         public List<CProductionReportData> prodData_ = null; 
 
         public CStateEvent(uint id, string type) : base(id, type)

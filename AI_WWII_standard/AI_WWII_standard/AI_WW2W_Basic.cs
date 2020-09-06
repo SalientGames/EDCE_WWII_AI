@@ -34,7 +34,7 @@ using com.kbs.empire.common.util.random;
 using com.kbs.empire.common.util.xml;
 
 //VERSION 1 09-09-17
-public class AI_WWII_Standard : AIPlayerFactory
+public class AI_WW2W_Basic : AIPlayerFactory
 {
     ////////////////////////////////////////////
     //For Individual Name Selection
@@ -56,12 +56,19 @@ public class AI_WWII_Standard : AIPlayerFactory
     public override List<string> bestBuildSets()
     {
         var ret = new List<string>();
-        ret.Add(EmpireCC.US_BS);
-        ret.Add(EmpireCC.US_SS);
-        ret.Add(EmpireCC.US_AS);
-        ret.Add(EmpireCC.US_ES);
+        ret.Add("WW2W_Basic_WW2_Enhanced_Set");
         return ret;
     }
+
+    private const string DEBUG_ATTR = "DB";
+    private const string STANCE_ATTR = "ST";
+    private const string STANCE_NORMAL = "NORMAL";
+    private const string STANCE_DEFENSIVE = "DEFENSIVE";
+    private const string STANCE_OFFENSIVE = "OFFENSIVE";
+
+    private const string SIDE_ATTR = "SD";
+    private const string SIDE_ALLIED = "ALLIED";
+    private const string SIDE_AXIS = "AXIS";
 
     ////////////////////////////////////////////
     //Hint Mechanism
@@ -69,7 +76,24 @@ public class AI_WWII_Standard : AIPlayerFactory
     //hint set for the player to configure
     public override CDLLHints getHints()
     {
-        return ai.player.CorporalAI.getHints();
+        Dictionary<string, string> DictionaryStance_ = new System.Collections.Generic.Dictionary<string, string>();
+        Dictionary<string, string> DictionarySide_ = new System.Collections.Generic.Dictionary<string, string>();
+
+        DictionaryStance_.Add(STANCE_NORMAL, "Normal");
+        DictionaryStance_.Add(STANCE_DEFENSIVE, "Defensive");
+        DictionaryStance_.Add(STANCE_OFFENSIVE, "Offensive");
+
+        DictionarySide_.Add(SIDE_ALLIED, "Allied");
+        DictionarySide_.Add(SIDE_AXIS, "Axis");
+
+        //Key Must Not Contain Spaces
+        var ret = new CDLLHints(new CDLLInfo("WW2W_Basic", "WW2 Winter basic AI", "WW2 winter AI for use with WW2W basic unit database.", "1.0"));
+
+        ret.addInfo(new CDLLNameValueHintInfo(STANCE_ATTR, "Stance", "What is the stance of the AI", DictionaryStance_, STANCE_OFFENSIVE));
+        ret.addInfo(new CDLLNameValueHintInfo(SIDE_ATTR, "Side", "What is the side of the AI", DictionarySide_, SIDE_ALLIED));
+        ret.addInfo(new CDLLBoolHintInfo(DEBUG_ATTR, "Debug", "Create a debug file", true));
+
+        return ret;
     }
 
 
@@ -80,6 +104,8 @@ public class AI_WWII_Standard : AIPlayerFactory
     public override AIPlayer createAIPlayer(int position, string logpath, string logname, CDLLHints hints,
         AIEventInterfaceI aiEvent, AICommandInterfaceI command, AIQueryI query, AICheatI cheat, int logLevel) 
     {
+        AIPlayer AIPlayer_;
+
         //name selection
         if (aiGroup_.Count == 0)
         {
@@ -91,8 +117,21 @@ public class AI_WWII_Standard : AIPlayerFactory
         string pname = aiGroup_[r];
         aiGroup_.RemoveAt(r);
 
-        //instance creation
-        return new ai.player.CorporalAI(position, pname, logpath, logname, hints, aiEvent, command, query, cheat, logLevel);
+        // Create the player based on the side selection
+        switch (hints.getValue(SIDE_ATTR))
+        {
+            case SIDE_ALLIED:
+                AIPlayer_ = new ai.player.AlliedAI(position, pname, logpath, logname, hints, aiEvent, command, query, cheat, logLevel);
+                break;
+            case SIDE_AXIS:
+                AIPlayer_ = new ai.player.AxisAI(position, pname, logpath, logname, hints, aiEvent, command, query, cheat, logLevel);
+                break;
+            default:
+                AIPlayer_ = new ai.player.AlliedAI(position, pname, logpath, logname, hints, aiEvent, command, query, cheat, logLevel);
+                break;
+        }
+
+        return AIPlayer_;
     }
 
     ////////////////////////////////////////////
@@ -102,8 +141,7 @@ public class AI_WWII_Standard : AIPlayerFactory
         AIEventInterfaceI aiEvent, AICommandInterfaceI command, AIQueryI query, AICheatI cheat, int logLevel) 
     {
         Dictionary<string, string> caMap = bin.getAttributes();
-        return new ai.player.CorporalAI(position, caMap, bin, logpath, logname, aiEvent, command, query, cheat, logLevel);
+        return new ai.player.AlliedAI(position, caMap, bin, logpath, logname, aiEvent, command, query, cheat, logLevel);
     }
-
 
 }

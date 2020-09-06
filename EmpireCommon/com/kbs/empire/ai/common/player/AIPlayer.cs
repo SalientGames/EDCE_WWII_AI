@@ -40,7 +40,7 @@ namespace com.kbs.empire.ai.common.player
 
         protected bool aiLogging_ = false;
 
-	    public int recurseCount = 0;
+        public int recurseCount = 0;
 
         //Interfacing
         public AICheatI cheat_ = null;
@@ -49,17 +49,25 @@ namespace com.kbs.empire.ai.common.player
         private readonly AIEventInterfaceI aiEvent_ = null;
         //////////////////////////////////////////////////////////////
         //Data
-        //position
+
+        /// <summary>
+        /// position
+        /// </summary>
         public readonly int position_;
 
-        //name
+        /// <summary>
+        /// name
+        /// </summary>
         public string pname_ = "Your Nemesis";
 
         //////////////////////////////////////////////////////////////////////////////
-        //This is flipped if a signal is sent from the mothership to stop.
+
+        /// <summary>
+        /// This is flipped if a signal is sent from the mothership to stop.
+        /// </summary>
         private bool holdFlag_ = false;
-	    public void ackHold(){holdFlag_ = false;}
-        public void setHold(){holdFlag_ = true;}
+        public void ackHold() { holdFlag_ = false; }
+        public void setHold() { holdFlag_ = true; }
 
         //////////////////////////////////////////////////////////////////////////////
         //Progress is your estimate, between 0-10000 of you percentage complete for
@@ -67,33 +75,33 @@ namespace com.kbs.empire.ai.common.player
         public const uint MAX_PROGRESS = 10000u;
         public const uint NO_PROGRESS = 0u;
         //////////////////////////////////////////////////////////////////////////////
-        
-	    //////////////////////////////////////////////////////////////
+
+        //////////////////////////////////////////////////////////////
         protected AIPlayer(int position, string path, string logname, AIEventInterfaceI aiEvent, AICommandInterfaceI command, AIQueryI query, AICheatI cheat, int logLevel)
         {
             position_ = position;
             realLog_ = new CLog(path, logname, logLevel);
             alogger_ = new CSubLog("AIPlayer" + Convert.ToString(position_), realLog_);
-            alogger_.info("A Logger Log Open: "  + path  + " " + logname);
+            alogger_.info("A Logger Log Open: " + path + " " + logname);
 
             aiEvent_ = aiEvent;
             command_ = command;
             query_ = query;
             cheat_ = cheat;
 
-	    }
+        }
 
         // ReSharper disable UnusedParameter.Local
         protected AIPlayer(
-            int position, 
-            string path, 
-            string logname, 
-            Dictionary<string, string> caMap,  
-            CEncodedObjectInputBufferI bin, 
-            AIEventInterfaceI aiEvent, 
-            AICommandInterfaceI command, 
-            AIQueryI query, 
-            AICheatI cheat, 
+            int position,
+            string path,
+            string logname,
+            Dictionary<string, string> caMap,
+            CEncodedObjectInputBufferI bin,
+            AIEventInterfaceI aiEvent,
+            AICommandInterfaceI command,
+            AIQueryI query,
+            AICheatI cheat,
             int logLevel)
         // ReSharper restore UnusedParameter.Local
         {
@@ -163,11 +171,11 @@ namespace com.kbs.empire.ai.common.player
             //At It's Type and taking appropriate action
             //if need be
         }
-	
-	    //////////////////////////////////////////////////////////////////////////////////////////
-	    //////////////////////////////////////////////////////////////////////////////////////////
-	    /////////////////////////////////////////////////////////////////////////////
-	    //To Command Interface
+
+        //////////////////////////////////////////////////////////////////////////////////////////
+        //////////////////////////////////////////////////////////////////////////////////////////
+        /////////////////////////////////////////////////////////////////////////////
+        //To Command Interface
         /////////////////////////////////////////////////////////////////////////////
         //Neutralize - Give Away Unit
         public bool neutralizeUnit(uint gid)
@@ -184,7 +192,13 @@ namespace com.kbs.empire.ai.common.player
             return (res == null);
         }
 
-        //Set Production for a city/producer
+        /// <summary>
+        /// Set Production for a city/producer
+        /// </summary>
+        /// <param name="gid"></param>
+        /// <param name="utype"></param>
+        /// <param name="applySupply"></param>
+        /// <returns></returns>
         public bool setProduction(uint gid, string utype, uint applySupply)
         {
             string res = command_.setProducerProduction(position_, gid, utype, applySupply);
@@ -198,7 +212,13 @@ namespace com.kbs.empire.ai.common.player
 
             return (res == null);
         }
-        //Set Supply consumption
+        /// <summary>
+        /// Set Supply consumption
+        /// </summary>
+        /// <param name="gid"></param>
+        /// <param name="consume"></param>
+        /// <param name="priority"></param>
+        /// <returns></returns>
         public bool setProductionConsumption(uint gid, bool consume, int priority)
         {
             string res = command_.setProducerConsumptionOfSupply(position_, gid, consume, priority);
@@ -212,7 +232,12 @@ namespace com.kbs.empire.ai.common.player
 
             return (res == null);
         }
-        //Set Minimum Supply Store
+        /// <summary>
+        /// Set Minimum Supply Store
+        /// </summary>
+        /// <param name="gid"></param>
+        /// <param name="minSupply"></param>
+        /// <returns></returns>
         public bool setProducerMinSupply(uint gid, uint minSupply)
         {
             string res = command_.setProducerMinSupplyStore(position_, gid, minSupply);
@@ -227,16 +252,18 @@ namespace com.kbs.empire.ai.common.player
             return (res == null);
         }
 
-        //End Turn (automatically called at the end of runTurn() )
+        /// <summary>
+        /// End Turn (automatically called at the end of runTurn() )
+        /// </summary>
         private void endTurn()
         {
-            if(aiLogging_)
+            if (aiLogging_)
                 alogger_.info("Calling End Turn");
             try
             {
 
-            string res = command_.endPlayerTurn(position_);
-            if(res != null){alogger_.info(res);}
+                string res = command_.endPlayerTurn(position_);
+                if (res != null) { alogger_.info(res); }
             }
             catch (Exception T)
             {
@@ -246,7 +273,11 @@ namespace com.kbs.empire.ai.common.player
             if (aiLogging_)
                 alogger_.info("Calling End Turn Done");
         }
-        //disband unit
+        /// <summary>
+        /// disband unit
+        /// </summary>
+        /// <param name="gid"></param>
+        /// <returns></returns>
         public bool disbandUnit(uint gid)
         {
             string res = command_.disbandUnit(position_, gid);
@@ -258,7 +289,11 @@ namespace com.kbs.empire.ai.common.player
                 pollAllEvents();
             return (res == null);
         }
-        //buypoints commands - results gain via event poll
+        /// <summary>
+        /// buypoints commands - results gain via event poll
+        /// </summary>
+        /// <param name="placeType"></param>
+        /// <param name="coord"></param>
         public void placeBPUnit(string placeType, CLoc coord)
         {
             command_.placeBPUnit(position_, placeType, coord);
@@ -276,77 +311,93 @@ namespace com.kbs.empire.ai.common.player
         }
 
 
-        //notification - no expectation of result
+        /// <summary>
+        /// notification - no expectation of result
+        /// </summary>
+        /// <param name="ntype"></param>
+        /// <param name="a"></param>
+        /// <param name="b"></param>
+        /// <param name="c"></param>
+        /// <param name="info"></param>
         public void doNotification(string ntype, uint a, uint b, uint c, string info)
         {
             var cn = new CNotification(ntype, a, b, c, info);
             command_.notify(position_, cn);
         }
 
-        //messages
+        /// <summary>
+        /// messages
+        /// </summary>
+        /// <param name="position"></param>
+        /// <param name="message"></param>
         public void sendMessage(int position, string message)
         {
             command_.sendChatMessage(position_, position, pname_, message);
         }
 
         ////////////////////////////////////////////////////////////////////
-	    //MOVEMENT/ORDER EXECUTION
+        //MOVEMENT/ORDER EXECUTION
         //For these commands, resulting events will be executed before the result is returned	   
         ////////////////////////////////////////////////////////////////////
-        //Sets Order - does not execute
-	    public string setUnitOrder(uint gid, COrder ord) 
-	    {
-		    CMoveResult cmr = command_.setOrder(position_, gid, ord);
-		    return executeMoveResult(cmr, gid);
-	    }
+        /// <summary>
+        /// Sets Order - does not execute
+        /// </summary>
+        /// <param name="gid"></param>
+        /// <param name="ord"></param>
+        /// <returns></returns>
+        public string setUnitOrder(uint gid, COrder ord)
+        {
+            CMoveResult cmr = command_.setOrder(position_, gid, ord);
+            return executeMoveResult(cmr, gid);
+        }
 
         public string executeUnitOrder(uint gid)
         {
             CMoveResult cmr = command_.executeOrder(position_, gid);
             return executeMoveResult(cmr, gid);
-	    }
+        }
 
-	    public string setAndExecuteUnitOrder(uint gid, COrder ord) 
-	    {
+        public string setAndExecuteUnitOrder(uint gid, COrder ord)
+        {
             CMoveResult cmr = command_.setAndExecuteOrder(position_, gid, ord);
             return executeMoveResult(cmr, gid);
-	    }
+        }
 
-        private string executeMoveResult(CMoveResult cmr, uint gid) 
-	    {
-		    try
-		    {
+        private string executeMoveResult(CMoveResult cmr, uint gid)
+        {
+            try
+            {
                 if (aiLogging_)
                     alogger_.info("GMR Result " + cmr.result_ + " for gid " + gid);
-			
-			    recurseCount++;
-			    if(recurseCount > 3)
-			    {
+
+                recurseCount++;
+                if (recurseCount > 3)
+                {
                     if (aiLogging_)
                         alogger_.info("Recurse Count Exceeded`: " + recurseCount);
-				    return COrderConstants.MV_FAILURE;
-			    }
-				
-			    if(cmr.error_ != null)
-			    {
+                    return COrderConstants.MV_FAILURE;
+                }
+
+                if (cmr.error_ != null)
+                {
                     if (aiLogging_)
                         alogger_.info("On exe gmr Unit Order: Error->: " + cmr.error_);
-				    return cmr.result_;
-			    }
-			
-			    //process gmr events
-			    processEvents(cmr.events_, alogger_);
-			    //process other events
-			    pollAllEvents();
-	
-		        return cmr.result_;
-	                		
-		    }
-		    finally
-		    {
-			    recurseCount--;
-		    }
-	    }
+                    return cmr.result_;
+                }
+
+                //process gmr events
+                processEvents(cmr.events_, alogger_);
+                //process other events
+                pollAllEvents();
+
+                return cmr.result_;
+
+            }
+            finally
+            {
+                recurseCount--;
+            }
+        }
 
         //Cleanup call - different from save
         public virtual void cleanup()
@@ -362,15 +413,17 @@ namespace com.kbs.empire.ai.common.player
             output.addTextObject(PNAME_TAG, pname_);
         }
 
-	    //This event is passed to give you the state of the AI - only done at the beginning,
-        //for reload it will be null
+        /// <summary>
+        /// This event is passed to give you the state of the AI - only done at the beginning, for reload it will be null
+        /// </summary>
+        /// <param name="cse"></param>
         public virtual void aiRestored(CStateEvent cse)
         {
-            if(cse != null)
+            if (cse != null)
                 processEvent(cse, alogger_);
             alogger_.info("Player Restored");
         }
-	    ////////////////////////////////////////////////////////////
+        ////////////////////////////////////////////////////////////
         public string getName() { return pname_; }
 
 

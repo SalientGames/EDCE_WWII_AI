@@ -1,0 +1,9 @@
+D:\SalientGames\Repos\EDCE_WWII_AI\AI_WWII_standard\AI_WWII_standard\bin\Debug\AI_WW2W_Basic.dll
+D:\SalientGames\Repos\EDCE_WWII_AI\AI_WWII_standard\AI_WWII_standard\bin\Debug\AI_WW2W_Basic.pdb
+D:\SalientGames\Repos\EDCE_WWII_AI\AI_WWII_standard\AI_WWII_standard\bin\Debug\EmpireCommon.dll
+D:\SalientGames\Repos\EDCE_WWII_AI\AI_WWII_standard\AI_WWII_standard\bin\Debug\EmpireCommon.pdb
+D:\SalientGames\Repos\EDCE_WWII_AI\AI_WWII_standard\AI_WWII_standard\obj\Debug\AI_WW2W_Basic.csproj.CoreCompileInputs.cache
+D:\SalientGames\Repos\EDCE_WWII_AI\AI_WWII_standard\AI_WWII_standard\obj\Debug\AI_WW2W_Basic.csproj.CopyComplete
+D:\SalientGames\Repos\EDCE_WWII_AI\AI_WWII_standard\AI_WWII_standard\obj\Debug\AI_WW2W_Basic.dll
+D:\SalientGames\Repos\EDCE_WWII_AI\AI_WWII_standard\AI_WWII_standard\obj\Debug\AI_WW2W_Basic.pdb
+D:\SalientGames\Repos\EDCE_WWII_AI\AI_WWII_standard\AI_WWII_standard\obj\Debug\AI_WW2W_Basic.csprojAssemblyReference.cache

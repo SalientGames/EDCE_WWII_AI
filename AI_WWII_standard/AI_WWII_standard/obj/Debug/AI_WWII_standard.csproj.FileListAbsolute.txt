@@ -7,3 +7,11 @@ D:\Acronda\Development\Gameing\Trunk\EDCE\AI_WWII_standard\AI_WWII_standard\bin\
 D:\Acronda\Development\Gameing\Trunk\EDCE\AI_WWII_standard\AI_WWII_standard\obj\Debug\AI_WWII_standard.csproj.CopyComplete
 D:\Acronda\Development\Gameing\Trunk\EDCE\AI_WWII_standard\AI_WWII_standard\obj\Debug\AI_WWII_Standard.dll
 D:\Acronda\Development\Gameing\Trunk\EDCE\AI_WWII_standard\AI_WWII_standard\obj\Debug\AI_WWII_Standard.pdb
+D:\SalientGames\Repos\EDCE_WWII_AI\AI_WWII_standard\AI_WWII_standard\obj\Debug\AI_WWII_Standard.csproj.CoreCompileInputs.cache
+D:\SalientGames\Repos\EDCE_WWII_AI\AI_WWII_standard\AI_WWII_standard\obj\Debug\AI_WWII_Standard.dll
+D:\SalientGames\Repos\EDCE_WWII_AI\AI_WWII_standard\AI_WWII_standard\obj\Debug\AI_WWII_Standard.pdb
+D:\SalientGames\Repos\EDCE_WWII_AI\AI_WWII_standard\AI_WWII_standard\bin\Debug\AI_WWII_Standard.dll
+D:\SalientGames\Repos\EDCE_WWII_AI\AI_WWII_standard\AI_WWII_standard\bin\Debug\AI_WWII_Standard.pdb
+D:\SalientGames\Repos\EDCE_WWII_AI\AI_WWII_standard\AI_WWII_standard\bin\Debug\EmpireCommon.dll
+D:\SalientGames\Repos\EDCE_WWII_AI\AI_WWII_standard\AI_WWII_standard\bin\Debug\EmpireCommon.pdb
+D:\SalientGames\Repos\EDCE_WWII_AI\AI_WWII_standard\AI_WWII_standard\obj\Debug\AI_WWII_Standard.csproj.CopyComplete

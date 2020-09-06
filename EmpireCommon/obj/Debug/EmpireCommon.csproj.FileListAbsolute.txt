@@ -20,3 +20,9 @@ D:\Acronda\Development\Gameing\Trunk\EDCE\EmpireCommon\bin\Debug\EmpireCommon.pd
 D:\Acronda\Development\Gameing\Trunk\EDCE\EmpireCommon\obj\Debug\EmpireCommon.csproj.CoreCompileInputs.cache
 D:\Acronda\Development\Gameing\Trunk\EDCE\EmpireCommon\obj\Debug\EmpireCommon.dll
 D:\Acronda\Development\Gameing\Trunk\EDCE\EmpireCommon\obj\Debug\EmpireCommon.pdb
+D:\SalientGames\Repos\EDCE_WWII_AI\EmpireCommon\bin\Debug\EmpireCommon.dll
+D:\SalientGames\Repos\EDCE_WWII_AI\EmpireCommon\bin\Debug\EmpireCommon.pdb
+D:\SalientGames\Repos\EDCE_WWII_AI\EmpireCommon\obj\Debug\EmpireCommon.csprojAssemblyReference.cache
+D:\SalientGames\Repos\EDCE_WWII_AI\EmpireCommon\obj\Debug\EmpireCommon.csproj.CoreCompileInputs.cache
+D:\SalientGames\Repos\EDCE_WWII_AI\EmpireCommon\obj\Debug\EmpireCommon.dll
+D:\SalientGames\Repos\EDCE_WWII_AI\EmpireCommon\obj\Debug\EmpireCommon.pdb

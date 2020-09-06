@@ -52,47 +52,74 @@ namespace com.kbs.empire.ai.common.player
         public List<CPlayer> players_ = new List<CPlayer>();
 
         //game object collections
+
         //All things I know about
         public Dictionary<uint, CUnit> masterObjects_ = new Dictionary<uint, CUnit>();
-        //All My Cities
+        /// <summary>
+        /// All My Cities
+        /// </summary>
         public List<CProducerUnit> cities_ = new List<CProducerUnit>();        
         public Dictionary<uint, CProducerUnit> cityMap_ = new Dictionary<uint, CProducerUnit>();
-        //Non-City Producer Units (like oilfields)
+        /// <summary>
+        /// Non-City Producer Units (like oilfields)
+        /// </summary>
         public List<CProducerUnit> producers_ = new List<CProducerUnit>();
         public Dictionary<uint, CProducerUnit> producerMap_ = new Dictionary<uint, CProducerUnit>();
-        //MY Units
+        /// <summary>
+        /// MY Units
+        /// </summary>
         public List<CUnit> units_ = new List<CUnit>();
         public Dictionary<uint, CUnit> unitMap_ = new Dictionary<uint, CUnit>();
-        //Other People's Stuff
+        /// <summary>
+        /// Other People's Stuff
+        /// </summary>
         public List<CUnit> spots_ = new List<CUnit>();
         public Dictionary<uint, CUnit> spotMap_ = new Dictionary<uint, CUnit>();
-        //All cities on the map that I see
+        /// <summary>
+        /// All cities on the map that I see
+        /// </summary>
         public List<CProducerUnit> knownCitiesVec_ = new List<CProducerUnit>();
-        //Supply Routes
+        /// <summary>
+        /// Supply Routes
+        /// </summary>
         public readonly Dictionary<uint, CSupplyRoute> supplySources_ = new Dictionary<uint, CSupplyRoute>();
 
-        //map of terrain
+        /// <summary>
+        /// map of terrain
+        /// </summary>
         public AIMap map_ = null;
         public CMapUtil mapUtil_ = null;
 
-        //flyover unit
+        /// <summary>
+        /// flyover unit
+        /// </summary>
         public CUnit foUnit_ = null;
 
-        //GameRules
+        /// <summary>
+        /// GameRules
+        /// </summary>
         public CGameRules gameRules_ = null;
         public CVictoryConditions vc_;
 
-        //random for use of AI - can be replaced
+        /// <summary>
+        /// random for use of AI - can be replaced
+        /// </summary>
         public CMTRandom random_;
 
-        //log
+        /// <summary>
+        /// log
+        /// </summary>
         private readonly CSubLog dlogger_;
 
-        //resource drain info
+        /// <summary>
+        /// resource drain info
+        /// </summary>
         public int rdWeight_ = 0;
         public int unitsBeforeDrain_ = 0;
 
-        //treaties
+        /// <summary>
+        /// treaties
+        /// </summary>
         public List<CProposal> proposals_ = new List<CProposal>();
         public List<CProductionReportData>  prodReport_ = new List<CProductionReportData>();
 

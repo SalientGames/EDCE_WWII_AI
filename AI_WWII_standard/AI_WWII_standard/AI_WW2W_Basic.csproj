@@ -7,8 +7,8 @@
     <ProjectGuid>{C0BA5CE6-0D85-4D2C-9158-860DE9938FDC}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>AI_WWII_Standard</RootNamespace>
-    <AssemblyName>AI_WWII_Standard</AssemblyName>
+    <RootNamespace>AI_WW2W_Basic</RootNamespace>
+    <AssemblyName>AI_WW2W_Basic</AssemblyName>
     <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -36,8 +36,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AI_WWII_Standard.cs" />
-    <Compile Include="ai\player\Corporal.cs" />
+    <Compile Include="ai\player\AxisAI.cs" />
+    <Compile Include="AI_WW2W_Basic.cs" />
+    <Compile Include="ai\player\AlliedAI.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -48,7 +49,7 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>XCOPY $(TargetDir)\AI_WWII_Standard.dll C:\Users\andrew.peiman.ACRONDALOCAL\AppData\LocalLow\KBSW\EmpireDeluxe\AIDLL /Y
-XCOPY $(TargetDir)\AI_WWII_Standard.pdb C:\Users\andrew.peiman.ACRONDALOCAL\AppData\LocalLow\KBSW\EmpireDeluxe\AIDLL /Y</PostBuildEvent>
+    <PostBuildEvent>XCOPY $(TargetDir)\AI_WW2W_Basic.dll C:\Users\andrew.peiman.ACRONDALOCAL\AppData\LocalLow\KBSW\EmpireDeluxe\AIDLL /Y
+XCOPY $(TargetDir)\AI_WW2W_Basic.pdb C:\Users\andrew.peiman.ACRONDALOCAL\AppData\LocalLow\KBSW\EmpireDeluxe\AIDLL /Y</PostBuildEvent>
   </PropertyGroup>
 </Project>

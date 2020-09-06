@@ -39,7 +39,7 @@ namespace ai.player
     //It is recommended you review that class.
     //And recommended you review AIPlayer Data if you care to use it (which is also recommended!)
     //
-    public class CorporalAI : AIPlayerData
+    public class AxisAI : AIPlayerData
     {
         //The output logger for debug work
         public readonly CSubLog elogger_ = null;
@@ -51,7 +51,7 @@ namespace ai.player
 
         //construction
         //This is the constructor for an AI Player at a new game.
-        public CorporalAI(int position, string pname, string logpath, string logname, CDLLHints hints,
+        public AxisAI(int position, string pname, string logpath, string logname, CDLLHints hints,
             AIEventInterfaceI aiEvent, AICommandInterfaceI command, AIQueryI query, AICheatI cheat, int logLevel) 
             : base(position, logpath, logname, aiEvent, command, query, cheat, logLevel)
         {
@@ -60,6 +60,7 @@ namespace ai.player
             realLog_.logLevel_ = CLog.INFO;
             elogger_.info("Open " + logpath + " " + logname);
             elogger_.info(pname + " waking up");
+            elogger_.info("Axis AI ready");
 
             //copy hints
             hints_ = hints.copy();
@@ -104,6 +105,8 @@ namespace ai.player
             base.processEvent(ge, logger);
 
             elogger_.info("processEvent - " + ge);
+
+
         }
 
         //Saving The AI State
@@ -141,7 +144,7 @@ namespace ai.player
         //be at the first element written out i encode enternal.
         //caMap contains any attributes written out in EncodeInternal
         //
-        public CorporalAI(
+        public AxisAI(
             int position, 
             Dictionary<string, string> caMap, 
             CEncodedObjectInputBufferI bin, 
@@ -183,6 +186,17 @@ namespace ai.player
         {
             elogger_.info("Restored started");
             base.aiRestored(cse);
+
+            elogger_.info("Map information");
+            elogger_.info("   Cities:" + cse.cities_);
+            elogger_.info("   Update:" + cse.cUpdate_);
+            elogger_.info("   Current turn:" + cse.curturn_);
+            elogger_.info("   Explored locations:" + cse.exploredLocs_);
+            elogger_.info("   Horizontal width:" + cse.h_);
+            elogger_.info("   Horizontal wrap:" + cse.hw_);
+            elogger_.info("   Vertical width:" + cse.w_);
+            elogger_.info("   Vertical wrap:" + cse.vw_);
+
             elogger_.info("Restored done");
             elogger_.info(pname_ + " is now self aware.");
         }
